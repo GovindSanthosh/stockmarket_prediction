@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html style="font-size: 16px;" lang="en"><head>
+  <title>Home</title>
+
+  <link rel="stylesheet" href="{% static 'Home.css' %}">
+</head>
+  <body class="about" data-lang="en">
+      <ul class="nav">
+        <li><a class="active" href="/">Home</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul> 
+      <h1>
+        Stock-Market Prediction of Reliance Ltd
+      </h1>
+      <div>
+        <h2>
+          Stock market prices in rupees from 2016 january.
+        </h2>
+        {% autoescape off %}
+        {{ plt_div }}
+        {% endautoescape %}
+
+      </div>
+      <h3>
+        Enter the number of days for prediction
+      </h3>
+      <div class="bottom">
+        {{ form.non_field_errors }}
+        <form action="/results/" method="GET" name="form" style="padding: 10px;">
+          
+          <div class="slidecontainer">
+            <label>Days</label>
+            <input type="range" min="1" max="90" value="50" class="slider" id="days" name="days" oninput="this.nextElementSibling.value = this.value">
+            <output></output>
+          </div>
+          <input type="submit" value="submit">
+        </form>
+      </div>
+
+
+    <div class="footer">
+      <p>.</p>
+    </div>
+</body></html>

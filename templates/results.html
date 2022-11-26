@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html style="font-size: 16px;" lang="en"><head>
+  <title>Home</title>
+
+  <link rel="stylesheet" href="{% static 'Home.css' %}">
+</head>
+  <body class="about" data-lang="en">
+      <ul class="nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul> 
+      <h1>
+        Predictions for the next {{ days }} days
+      </h1>
+      <div>
+        
+        {% autoescape off %}
+        {{ plt_div }}
+        {% endautoescape %}
+
+      </div>
+
+    <div class="footer">
+      <p>{{ days }}</p>
+    </div>
+</body></html>
